@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "seed": "ts-node src/scripts/seed.ts",
-    "scenario": "ts-node src/scripts/simulated-scenario.ts",
     "process-history": "ts-node src/scripts/process-history.ts"
+
   },
 
   "keywords": [
