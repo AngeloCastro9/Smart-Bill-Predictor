@@ -1,0 +1,32 @@
+{
+  "name": "smart-bill-predictor",
+  "version": "1.0.0",
+  "description": "Energy Bill Prediction utilizing TypeScript and Machine Learning",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "seed": "ts-node src/scripts/seed.ts",
+    "scenario": "ts-node src/scripts/simulated-scenario.ts",
+    "process-history": "ts-node src/scripts/process-history.ts"
+  },
+
+  "keywords": [
+    "typescript",
+    "ml",
+    "energy",
+    "prediction"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^4.17.0",
+    "danfojs-node": "^1.1.2",
+    "fastify": "^4.26.2",
+    "scikitjs": "^1.24.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24"
+  }
+}

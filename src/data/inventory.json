@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Refrigerator",
+    "powerWatts": 150,
+    "hoursPerDay": 24
+  },
+  {
+    "name": "Air Conditioner",
+    "powerWatts": 1200,
+    "hoursPerDay": 8
+  },
+  {
+    "name": "Laptop",
+    "powerWatts": 65,
+    "hoursPerDay": 8
+  },
+  {
+    "name": "TV",
+    "powerWatts": 100,
+    "hoursPerDay": 4
+  },
+  {
+    "name": "Shower",
+    "powerWatts": 5500,
+    "hoursPerDay": 1
+  }
+]
