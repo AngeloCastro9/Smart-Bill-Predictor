@@ -1,5 +1,11 @@
 [
   {
+    "name": "Electric Car",
+    "kwhPerCharge": 60,
+    "chargesPerMonth": 2
+  },
+
+  {
     "name": "Refrigerator",
     "powerWatts": 150,
     "hoursPerDay": 24
