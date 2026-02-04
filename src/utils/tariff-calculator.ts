@@ -44,4 +44,21 @@ export class TariffCalculator {
       total: parseFloat((subtotal + taxes).toFixed(2))
     };
   }
+
+  static predictTariff(date: Date): TariffFlag {
+    const month = date.getMonth(); 
+    
+    if (month <= 3) return TariffFlag.GREEN;
+    
+    if (month <= 6) return TariffFlag.YELLOW;
+    
+    if (month === 7) return TariffFlag.RED_1;
+    
+    if (month <= 9) return TariffFlag.RED_2;
+    
+    if (month === 10) return TariffFlag.RED_1;
+    
+    return TariffFlag.YELLOW;
+  }
 }
+

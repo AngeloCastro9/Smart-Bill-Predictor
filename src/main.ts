@@ -65,25 +65,29 @@ async function main() {
   console.log('----------------------------------------------------');
   
   const calculator = new TariffCalculator();
-  const flag = TariffFlag.GREEN;
+  let annualBill = 0;
 
   for (const monthKey of Object.keys(monthlyData).sort()) {
       const kwh = monthlyData[monthKey];
-      const bill = calculator.calculate(kwh, flag);
       
-      console.log(`${monthKey}\t\t${kwh.toFixed(2)}\t\tR$ ${bill.total.toFixed(2)}`);
+      const monthIndex = parseInt(monthKey.split('-')[1]) - 1;
+      const dateForFlag = new Date(2026, monthIndex, 1);
+      const flag = TariffCalculator.predictTariff(dateForFlag);
+      
+      const bill = calculator.calculate(kwh, flag);
+      annualBill += bill.total;
+      
+      console.log(`${monthKey}\t\t${kwh.toFixed(2)}\t\tR$ ${bill.total.toFixed(2)}\t(${flag})`);
   }
 
-  const billTotal = calculator.calculate(annualTotal, flag);
-  let totalCostSum = 0;
-   for (const monthKey of Object.keys(monthlyData)) {
-      totalCostSum += calculator.calculate(monthlyData[monthKey], flag).total;
-   }
+  const avgFlag = "VARIES";
+
 
   console.log('----------------------------------------------------');
   console.log(`[TOTAL 2026]`);
   console.log(`Consumption: ${annualTotal.toFixed(2)} kWh`);
-  console.log(`Total Cost:  R$ ${totalCostSum.toFixed(2)} (Flag: ${flag})`);
+  console.log(`Total Cost:  R$ ${annualBill.toFixed(2)} (Seasonal Flags Applied)`);
+
 }
 
 main().catch(console.error);
